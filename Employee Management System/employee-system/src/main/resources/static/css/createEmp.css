@@ -1,0 +1,11 @@
+.card-header, .card-footer {
+    background-color: rgb(1, 78, 78);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.card-body{
+    border: 2px solid rgb(1, 78, 78);
+}
+
