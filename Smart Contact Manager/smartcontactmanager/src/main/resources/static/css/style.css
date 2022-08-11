@@ -1,35 +1,139 @@
+body {
+    /* font-family: 'Baloo Bhai 2', cursive;
+    font-family: 'Roboto', sans-serif; */
+    font-family: 'Baloo Bhai 2', cursive;
+}
 
 /* Creation of the colors */
-.bg-primary{
-    background-color: #009688 !important;
+.bg-primary {
+    background-color: #006c61 !important;
 }
 
 /* Navbar styling */
 
-.navbar-nav{
+.navbar-nav {
     margin-left: auto;
 }
 
+.navbar-nav ul a{
+    cursor: pointer;
+}
+
+
+
 /* Home styling */
-.banner{
+.banner {
     width: 100%;
     height: 93vh;
     color: white;
-    background:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/banner.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/banner.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 
-  
+
 }
 
-.banner a{
+.banner a {
     text-decoration: none;
     font-size: 20px;
 }
 
 /* Signup styling */
-.my-card{
+.my-card {
     padding: 20px;
-    background-color: #ffffff!important;
+    background-color: #ffffff !important;
     border-radius: 5px;
+}
+
+/* Login Styling */
+.reglink {
+    text-decoration: none;
+    color: blue;
+
+}
+
+
+/* Sidebar Styling */
+
+@media only screen and (max-width:600px) {
+    .sidebar {
+        display: none;
+        width: 80% !important;
+        background-color: white;
+        height: 100vh;
+        position: fixed;
+        padding-top: 20px;
+    }
+
+    .content {
+        margin-left: 0% !important;
+    }
+}
+
+.sidebar {
+    width: 18%;
+    background-color: white;
+    height: 100%;
+    position: fixed;
+    padding-top: 45px;
+    z-index: 99999999999;
+    margin-top: 13px;
+}
+
+.sidebar a {
+    display: block;
+    width: 100%;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: grey;
+}
+
+
+.sidebar .divider {
+    height: 0.5px;
+    width: 100%;
+    background-color: #e2e2e2;
+    margin-top: 15px;
+}
+
+.sidebar .crossBtn {
+    position: absolute;
+    top: 0;
+    right: 32px;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.content .barsBtn {
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.content {
+    margin-left: 20%;
+}
+
+
+/* Add Contact Styling */
+.marginRight{
+    margin-right: 1rem;
+}
+
+
+
+/* Show Contacts */
+
+td a{
+    text-decoration: none;
+    
+}
+
+.my_profile_picture{
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #e2e2e2;
 }

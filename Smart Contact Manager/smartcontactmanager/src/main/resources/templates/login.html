@@ -14,32 +14,102 @@
         <title>Login - Smart Contact Manager</title>
     </head>
     <body>
-        <section>
-            <div class="container">
+        <!-- Section: Design Block -->
+        <section class="">
+            <!-- Jumbotron -->
+            <div class="px-4 py-5 px-md-5 text-center text-lg-start"
+                style="background-color: hsl(0, 0%, 96%)">
+                <div class="container">
+                    <div class="row gx-lg-5 align-items-center">
+                        <div class="col-lg-6 mb-5 mb-lg-0">
+                            <h1 class="my-5 display-3 fw-bold ls-tight">
+                                Please Sign in <br />
+                                <span class="text-primary">With Smart contact
+                                    Manager</span>
+                            </h1>
+                            <p style="color: hsl(217, 10%, 50.8%)">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit.
+                                Eveniet, itaque accusantium odio, soluta,
+                                corrupti aliquam
+                                quibusdam tempora at cupiditate quis eum maiores
+                                libero
+                                veritatis? Dicta facilis sint aliquid ipsum
+                                atque?
+                            </p>
+                        </div>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Maxime maiores quod quo sunt ipsum quas voluptates
-                    necessitatibus, assumenda eos, beatae animi veniam ratione
-                    quae sequi delectus nostrum dolorum suscipit deleniti
-                    incidunt pariatur! Laborum eius atque cupiditate sint in,
-                    illo dicta, dolorum, non consequatur ipsum iusto.
-                    Dignissimos voluptatibus optio voluptas iste officiis. Iste,
-                    dolor beatae. Consectetur nam mollitia labore, sed odit
-                    ullam odio voluptatem? Illum iste veniam totam qui, id cum
-                    eveniet consequuntur, repudiandae quo sint distinctio beatae
-                    deserunt itaque minima ipsa? Totam voluptas tempore est ea
-                    blanditiis, repellendus ipsum delectus officia ex,
-                    architecto assumenda exercitationem! Eveniet saepe
-                    blanditiis sunt culpa eum doloribus placeat sint, modi
-                    temporibus soluta fugiat debitis dolorum laborum minima
-                    repudiandae ipsa mollitia eaque natus at dolores. Debitis
-                    deserunt laborum temporibus exercitationem nulla sit quaerat
-                    optio, illum consequuntur! Consequuntur harum, aliquid
-                    dolore deserunt reprehenderit similique ducimus! Quo,
-                    aliquid numquam. Aliquid asperiores sunt culpa hic adipisci
-                    doloribus maxime possimus doloremque rem.</p>
+                        <div class="col-lg-6 mb-5 mb-lg-0">
+                            <div class="card shadow">
+                                <div class="card-body py-5 px-md-5">
+                                    <form th:action="@{/dologin}" action="#"
+                                        method="post">
+
+                                        <!-- Error Alert -->
+                                        <div th:if="${param.error}" class="alert
+                                            alert-danger text-center">
+                                            Invalid username & password
+                                        </div>
+
+                                        <div th:if="${param.logout}" class="alert
+                                            alert-success text-center">
+                                            You have been logged out </div>
+                                        <!-- Email input -->
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label"
+                                                for="form3Example3">Username/Email</label>
+                                            <input type="email" name="username"
+                                                id="form3Example3"
+                                                class="form-control"
+                                                placeholder="username"/>
+                                        </div>
+
+                                        <!-- Password input -->
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label"
+                                                for="form3Example4">Password</label>
+                                            <input type="password"
+                                                name="password"
+                                                id="form3Example4"
+                                                class="form-control"
+                                                placeholder="password"/>
+                                        </div>
+
+                                        <!-- Checkbox -->
+                                        <div class="form-check d-flex
+                                            justify-content-center mb-4">
+                                            <input class="form-check-input me-2"
+                                                type="checkbox" value=""
+                                                id="form2Example33" checked />
+                                            <label class="form-check-label"
+                                                for="form2Example33">
+                                                Remember Me
+                                            </label>
+                                        </div>
+
+                                        <!-- Submit button -->
+                                        <button type="submit" class="btn
+                                            btn-primary btn-block mb-4
+                                            text-center d-block mx-auto">
+                                            Sign In
+                                        </button>
+
+                                        <!-- Register buttons -->
+                                        <div class="text-center">
+                                            <p>Don't have an Account?</p>
+                                            <a href="{@/signup/}"
+                                                class="reglink">Create Account</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- Jumbotron -->
         </section>
+        <!-- Section: Design Block -->
 
 
 

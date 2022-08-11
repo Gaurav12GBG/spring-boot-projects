@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +21,9 @@ import com.smart.smartcontactmanager.helpers.Message;
 public class HomeController {
 
     @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
     private UserRepository userRepository;
 
     // handler for home
@@ -27,6 +31,7 @@ public class HomeController {
     public String home(Model model) {
 
         model.addAttribute("title", "Home - Smart Contact Manager");
+        model.addAttribute("attach1", true);
         return "home";
     }
 
@@ -35,7 +40,19 @@ public class HomeController {
     public String about(Model model) {
 
         model.addAttribute("title", "About - Smart Contact Manager");
+        model.addAttribute("attach2", true);
+
         return "about";
+    }
+
+    // handler for login
+    @GetMapping("/signin")
+    public String login(Model model) {
+
+        model.addAttribute("title", "Login - Smart Contact Manager");
+        model.addAttribute("attach3", true);
+
+        return "login";
     }
 
     // handler for signup
@@ -43,16 +60,10 @@ public class HomeController {
     public String signup(Model model) {
 
         model.addAttribute("title", "Signup - Smart Contact Manager");
+        model.addAttribute("attach4", true);
+
         model.addAttribute("user", new User());
         return "signup";
-    }
-
-    // handler for login
-    @GetMapping("/login")
-    public String login(Model model) {
-
-        model.addAttribute("title", "Login - Smart Contact Manager");
-        return "login";
     }
 
     // handler for registring user
@@ -63,8 +74,8 @@ public class HomeController {
 
         try {
             // if (!agreement) {
-            //     // System.out.println("You have not agreed the terms and conditions");
-            //     throw new Exception("You have not agreed the terms and conditions");
+            // // System.out.println("You have not agreed the terms and conditions");
+            // throw new Exception("You have not agreed the terms and conditions");
             // }
 
             if (result.hasErrors()) {
@@ -75,6 +86,7 @@ public class HomeController {
 
             user.setRole("ROLE_USER");
             user.setEnabled(true);
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
             System.out.println("Agreement= " + agreement);
             System.out.println("User= " + user);

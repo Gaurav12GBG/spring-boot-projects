@@ -10,18 +10,24 @@
             rel="stylesheet"
             integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
             crossorigin="anonymous">
-
-
+        <link
+            href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Roboto:wght@300&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous" />
 
         <link rel="stylesheet" th:href="@{/css/style.css}">
 
         <title th:text="${title}"></title>
+    
     </head>
     <body class="bg-light">
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Smart Contact Manager</a>
+                <a class="navbar-brand" th:href="@{/}">Smart Contact Manager</a>
                 <button class="navbar-toggler" type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent"
@@ -33,24 +39,24 @@
                     id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto text-uppercase">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"
-                                th:href="@{/}">Home</a>
+                            <a class="nav-link" aria-current="page"
+                                th:href="@{/}" th:classappend="${attach1} ? 'active' : ''">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/about/}">About</a>
+                            <a class="nav-link" th:href="@{/about/}" th:classappend="${attach2} ? 'active' : ''">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/login/}">Login</a>
+                            <a class="nav-link" th:href="@{/signin/}" th:classappend="${attach3} ? 'active' : ''">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/signup/}">Signup</a>
+                            <a class="nav-link" th:href="@{/signup/}" th:classappend="${attach4} ? 'active' : ''">Signup</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        
+
 
         <div th:replace="${content}"></div>
         <h5>Base Footer</h5>
