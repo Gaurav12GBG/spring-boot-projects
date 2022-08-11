@@ -28,14 +28,15 @@
                                     Manager</span>
                             </h1>
                             <p style="color: hsl(217, 10%, 50.8%)">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit.
-                                Eveniet, itaque accusantium odio, soluta,
-                                corrupti aliquam
-                                quibusdam tempora at cupiditate quis eum maiores
-                                libero
-                                veritatis? Dicta facilis sint aliquid ipsum
-                                atque?
+                                This web application is a very simple, clickable
+                                and
+                                easy to understand. In this web application any
+                                user
+                                can add their preferred contacts and manage all
+                                the things in a smarter way. In this
+                                web application there is a very innovative and
+                                fluent management features with proper spring
+                                security and many more.
                             </p>
                         </div>
 
@@ -51,7 +52,8 @@
                                             Invalid username & password
                                         </div>
 
-                                        <div th:if="${param.logout}" class="alert
+                                        <div th:if="${param.logout}"
+                                            class="alert
                                             alert-success text-center">
                                             You have been logged out </div>
                                         <!-- Email input -->
@@ -97,7 +99,7 @@
                                         <!-- Register buttons -->
                                         <div class="text-center">
                                             <p>Don't have an Account?</p>
-                                            <a href="{@/signup/}"
+                                            <a th:href="@{/signup/}"
                                                 class="reglink">Create Account</a>
                                         </div>
                                     </form>

@@ -20,7 +20,7 @@
         <div class="card-body">
 
           <div th:if="${contact}" class="container text-center">
-            <img style="height:200px; width:200px" class="my_profile_picture"
+            <img style="height:200px; width:200px" class="my_profile_picture shadow"
               th:src="@{'/images/'+ ${contact.image}}" alt="Profile photo">
             <h3 class="mt-3"><span th:text="${contact.name}"></span> ( <span
                 th:text="${contact.secondName}"></span> )</h3>

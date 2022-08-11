@@ -21,7 +21,7 @@
         <link rel="stylesheet" th:href="@{/css/style.css}">
 
         <title th:text="${title}"></title>
-    
+
     </head>
     <body class="bg-light">
 
@@ -40,16 +40,20 @@
                     <ul class="navbar-nav ml-auto text-uppercase">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page"
-                                th:href="@{/}" th:classappend="${attach1} ? 'active' : ''">Home</a>
+                                th:href="@{/}" th:classappend="${attach1} ?
+                                'active' : ''">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/about/}" th:classappend="${attach2} ? 'active' : ''">About</a>
+                            <a class="nav-link" th:href="@{/about/}"
+                                th:classappend="${attach2} ? 'active' : ''">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/signin/}" th:classappend="${attach3} ? 'active' : ''">Login</a>
+                            <a class="nav-link" th:href="@{/signin/}"
+                                th:classappend="${attach3} ? 'active' : ''">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/signup/}" th:classappend="${attach4} ? 'active' : ''">Signup</a>
+                            <a class="nav-link" th:href="@{/signup/}"
+                                th:classappend="${attach4} ? 'active' : ''">Signup</a>
                         </li>
                     </ul>
                 </div>
@@ -59,7 +63,38 @@
 
 
         <div th:replace="${content}"></div>
-        <h5>Base Footer</h5>
+
+        <footer class="p-3 bg-primary-low mt-5">
+            <ul class="nav justify-content-center pb-2">
+                <li class="nav-item"><a th:href="@{/}" class="nav-link px-2
+                        text-light active">Home</a></li>
+                <li class="nav-item"><a th:href="@{/about}" class="nav-link px-2
+                        text-light">about</a></li>
+                <li class="nav-item"><a th:href="@{/signin}" class="nav-link
+                        px-2 text-light">Login</a></li>
+                <li class="nav-item"><a th:href="@{/signup}" class="nav-link
+                        px-2 text-light">Signup</a></li>
+            </ul>
+            <hr class="bg-primary shadow">
+            <div class="information text-center p-3 mx-auto" style="width:
+                48%;">
+                <h4 class="text-center text-white" style="font-weight:bold ;">Smart
+                    Contact Manager</h4>
+                <p class="text-light mt-1">SCM web application is a very simple,
+                    clickable and
+                    easy to understand. In this web application any user
+                    can add their preferred contacts and manage all the things
+                    in a smarter way. In this
+                    web application there is a very innovative and fluent
+                    management features with proper spring security and many
+                    more. Lorem, ipsum dolor sit amet consectetur
+                    adipisicing elit.</p>
+            </div>
+        </footer>
+        <footer class="p-3 bg-primary">
+            <p class="text-center text-white">© 2022-23
+                www.smartcontactmanager.com, Inc</p>
+        </footer>
 
         <script th:src="@{/js/script.js}"></script>
         <script

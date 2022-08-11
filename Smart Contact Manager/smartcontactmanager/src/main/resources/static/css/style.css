@@ -9,6 +9,10 @@ body {
     background-color: #006c61 !important;
 }
 
+.bg-primary-low {
+    background-color: #02ac9b !important;
+}
+
 /* Navbar styling */
 
 .navbar-nav {
@@ -136,4 +140,11 @@ td a{
     object-fit: cover;
     border-radius: 50%;
     border: 1px solid #e2e2e2;
+}
+
+
+/* footer styling */
+.footer{
+    position: relative;
+    z-index: 999999999999999999999999999999999999999999;
 }

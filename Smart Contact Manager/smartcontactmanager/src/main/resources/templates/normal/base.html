@@ -83,18 +83,22 @@
                 </div>
             </div>
         </nav>
-        
 
-        <div class="sidebar">
+
+        <div class="sidebar shadow-lg">
             <span onclick="toggleSidebar()" class="crossBtn">&times;</span>
-            <a href="#" th:href="@{/user/index}" class="item" th:classappend="${attach1} ? 'active' : ''"><i class="fas
+            <a href="#" th:href="@{/user/index}" class="item"
+                th:classappend="${attach1} ? 'active' : ''"><i class="fas
                     fa-home mx-3"></i>Home</a>
-            <a href="#" th:href="@{/user/showContacts/0}" class="item" th:classappend="${attach3} ? 'active' : ''"><i
+            <a href="#" th:href="@{/user/showContacts/0}" class="item"
+                th:classappend="${attach3} ? 'active' : ''"><i
                     class="fas fa-id-card-alt mx-3"></i>Show
                 Contacts</a>
-            <a href="#" th:href="@{/user/add-contact}" class="item" th:classappend="${attach2} ? 'active' : ''"><i
+            <a href="#" th:href="@{/user/add-contact}" class="item"
+                th:classappend="${attach2} ? 'active' : ''"><i
                     class="fas fa-pencil-alt mx-3"></i>Add Contact</a>
-            <a href="#" th:href="@{/user/profile}" class="item" th:classappend="${attach4} ? 'active' : ''"><i class="fas
+            <a href="#" th:href="@{/user/profile}" class="item"
+                th:classappend="${attach4} ? 'active' : ''"><i class="fas
                     fa-user-circle mx-3"></i>Profile</a>
             <!-- <a href="#" class="item"><i class="fas fa-cogs mx-3"></i>Settings</a> -->
             <a href="#" th:href="@{/logout}" class="item"><i class="fas
@@ -116,7 +120,37 @@
             <div th:replace="${content}"></div>
         </div>
 
-        <h5>Base Footer</h5>
+        <footer class="footer p-3 bg-primary-low mt-5">
+            <ul class="nav justify-content-center pb-2">
+                <li class="nav-item"><a th:href="@{/user/index}" class="nav-link px-2
+                        text-light active">Home</a></li>
+                <li class="nav-item"><a th:href="@{/user/showContacts/0}" class="nav-link px-2
+                        text-light">Show Contacts</a></li>
+                <li class="nav-item"><a th:href="@{/user/add-contact}" class="nav-link
+                        px-2 text-light">Add Contact</a></li>
+                <li class="nav-item"><a th:href="@{/user/profile}" class="nav-link
+                        px-2 text-light">Profile</a></li>
+            </ul>
+            <hr class="bg-primary shadow">
+            <div class="information text-center p-3 mx-auto" style="width:
+                48%;">
+                <h4 class="text-center text-white" style="font-weight:bold ;">Smart
+                    Contact Manager</h4>
+                <p class="text-light mt-1">SCM web application is a very simple,
+                    clickable and
+                    easy to understand. In this web application any user
+                    can add their preferred contacts and manage all the things
+                    in a smarter way. In this
+                    web application there is a very innovative and fluent
+                    management features with proper spring security and many
+                    more. Lorem, ipsum dolor sit amet consectetur
+                    adipisicing elit.</p>
+            </div>
+        </footer>
+        <footer class="footer p-3 bg-primary">
+            <p class="text-center text-white">© 2022-23
+                www.smartcontactmanager.com, Inc</p>
+        </footer>
 
         <script th:src="@{/js/script.js}"></script>
         <script
