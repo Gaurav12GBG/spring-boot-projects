@@ -72,6 +72,7 @@ public class HomeController {
             @RequestParam(value = "agreement", defaultValue = "false") boolean agreement, Model model,
             HttpSession session) {
 
+        model.addAttribute("attach4", true);
         try {
             // if (!agreement) {
             // // System.out.println("You have not agreed the terms and conditions");

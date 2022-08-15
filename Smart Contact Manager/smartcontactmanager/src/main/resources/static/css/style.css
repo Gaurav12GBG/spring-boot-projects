@@ -19,7 +19,7 @@ body {
     margin-left: auto;
 }
 
-.navbar-nav ul a{
+.navbar-nav ul a {
     cursor: pointer;
 }
 
@@ -121,7 +121,7 @@ body {
 
 
 /* Add Contact Styling */
-.marginRight{
+.marginRight {
     margin-right: 1rem;
 }
 
@@ -129,12 +129,12 @@ body {
 
 /* Show Contacts */
 
-td a{
+td a {
     text-decoration: none;
-    
+
 }
 
-.my_profile_picture{
+.my_profile_picture {
     width: 34px;
     height: 34px;
     object-fit: cover;
@@ -143,8 +143,25 @@ td a{
 }
 
 
+/* search css */
+.search-container {
+    position: relative;
+}
+
+.search-result {
+    position: absolute;
+    width: 100%;
+    display: none;
+}
+
+.list-group-item:hover {
+    background-image: linear-gradient(to left, rgb(59, 150, 150), rgb(34, 2, 72));
+    color: white;
+}
+
+
 /* footer styling */
-.footer{
+.footer {
     position: relative;
     z-index: 999999999999999999999999999999999999999999;
 }

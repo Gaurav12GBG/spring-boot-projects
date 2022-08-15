@@ -1,34 +1,58 @@
 console.log("This is a script.js file")
 
-// const currentLocation = location.href;
-// console.log(currentLocation);
-
-// const multipleItem = document.querySelectorAll('ul li a');
-// console.log(multipleItem)
-
-// const multipleItemLength = multipleItem.length;
-// console.log(multipleItemLength)
-
-// for(var i=0; i<multipleItemLength; i++){
-//     if(multipleItem[i].href === currentLocation){
-//         console.log("Yes i am in")
-//         multipleItem[i].className = "active";
-//     }
-// }
 
 const toggleSidebar = () => {
 
-    if($(".sidebar").is(":visible")){
+    if ($(".sidebar").is(":visible")) {
         // true
         //band karna hai
         $(".sidebar").css("display", "none")
         $(".barsBtn").css("background-color", "white")
         $(".content").css("margin-left", "0%")
-    }else{
+    } else {
         //false
         //start karna hai
         $(".sidebar").css("display", "block")
         $(".barsBtn").css("background-color", "")
         $(".content").css("margin-left", "20%")
+    }
+}
+
+
+//seach function
+const search = () => {
+    // console.log("Called and searching")
+
+    let query = $("#search-input").val();
+
+    if (query == "") {
+        $(".search-result").hide();
+    } else {
+        //search
+        console.log(query);
+
+        //sending request to server
+
+        let url = `http://localhost:8282/search/${query}`;
+
+        fetch(url).then((response) => {
+            return response.json();
+        }).then((data) => {
+            //data 
+            // console.log(data);
+
+            let text = `<div class="list-group">`
+
+            data.forEach((contact) => {
+                text += `<a href="/user/${contact.cId}/contact" class="list-group-item list-group-item-action"> ${contact.name}</a>`
+            })
+
+            text += `</div>`;
+
+            $(".search-result").html(text);
+            $(".search-result").show();
+
+        });
+
     }
 }

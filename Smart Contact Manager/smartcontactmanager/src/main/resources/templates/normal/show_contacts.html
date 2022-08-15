@@ -21,13 +21,30 @@
                     <h1 class="text-center">Your Contacts</h1>
 
                     <!-- tables of the contacts detail -->
-                    <hr>
                     <div class="text-center" th:if="${contacts.empty}">
+                        <hr>
                         <p>You haven't any contacts, So please add contacts
                             here...</p>
                     </div>
 
-                    <table class="table table-striped"
+                    <!-- Search Fumctionalities -->
+                    <div class="search-container my-3 w-25">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text border-secondary" id="addon-wrapping" style="background-color: black; color: #fff;"><i
+                                    class="fas fa-search"></i></span>
+                            <input type="text" class="form-control shadow-sm border-secondary"
+                                id="search-input" onkeyup="search()"
+                                placeholder="You can search here..."
+                                aria-label="Username"
+                                aria-describedby="addon-wrapping">
+                        </div>
+
+                        <div class="search-result my-2">
+                            <!-- result goes here -->
+
+                        </div>
+                    </div>
+                    <table class="table table-striped table-bordered text-center"
                         th:if="${!contacts.empty}">
                         <thead>
                             <tr>
@@ -56,8 +73,11 @@
                                 <td><a href="#"
                                         th:onclick="|deleteContact(${e.cId})|"
                                         class="btn btn-danger">Delete</a>
-                                    <form th:action="@{'/user/update-contact/'+${e.cId}}" method="post" class="mt-2">
-                                        <button type="submit" class="btn btn-success">Update</button>
+                                    <form
+                                        th:action="@{'/user/update-contact/'+${e.cId}}"
+                                        method="post" class="mt-2">
+                                        <button type="submit" class="btn
+                                            btn-success">Update</button>
                                     </form>
                                 </td>
                             </tr>
