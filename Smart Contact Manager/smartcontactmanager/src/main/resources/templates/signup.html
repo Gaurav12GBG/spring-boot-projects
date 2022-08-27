@@ -15,134 +15,161 @@
     </head>
     <body>
         <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 offset-md-3">
-                        <div class="my-card mt-3 shadow">
+            <div class="px-4 py-5 px-md-5 text-center text-lg-start"
+                style="background-color: hsl(0, 0%, 96%)">
+                <div class="container">
+                    <div class="row gx-lg-5 align-items-center">
+                        <div class="col-lg-6 mb-5 mb-lg-0">
+                            <h1 class="my-5 display-3 fw-bold ls-tight">
+                                Please Sign Up <br />
+                                <span class="text-primary">With Smart contact
+                                    Manager</span>
+                            </h1>
+                            <p style="color: hsl(217, 10%, 50.8%)">
+                                This web application is a very simple, clickable
+                                and
+                                easy to understand. In this web application any
+                                user
+                                can add their preferred contacts and manage all
+                                the things in a smarter way. In this
+                                web application there is a very innovative and
+                                fluent management features with proper spring
+                                security and many more.
+                            </p>
+                        </div>
+                        <div class="col-lg-6 mb-5 mb-lg-0">
+                            <div class="my-card mt-3 shadow">
 
-                            <!-- Alert msg -->
-                            <div th:if="${session.message}"
-                                th:classappend="${session.message.type}"
-                                class="alert alert-dismissible
-                                fade show"
-                                role="alert">
-                                <p class="text-center"
-                                    th:text="${session.message.content}"></p>
-                                <th:block
-                                    th:text="${#session.removeAttribute('message')}"></th:block>
+                                <!-- message box -->
+                                <div class="alert w-75 mx-auto text-center"
+                                    th:if="${session.message}"
+                                    th:classappend="${session.message.type}">
+                                    <span th:text="${session.message.content}"></span>
+                                    <th:block
+                                        th:text="${#session.removeAttribute('message')}"></th:block>
+                                </div>
+                                <!-- 
+                                <img class="d-block mx-auto"
+                                    th:src="@{/images/add-user.png/}"
+                                    width="80px"
+                                    height="80px" alt="">
+                                <h1 class="text-center">Register Here</h1> -->
+                                <form action="" th:action="@{/do_register/}"
+                                    method="post" th:object="${user}"
+                                    novalidate>
+                                    <!-- Name Field -->
+                                    <div class="form-group my-3">
+                                        <label for="name_field">Name</label>
+                                        <input type="text" name="name"
+                                            class="form-control"
+                                            th:classappend="${#fields.hasErrors('name')
+                                            ? 'is-invalid' : ''}"
+                                            id="name_field"
+                                            aria-describedby="emailHelp"
+                                            placeholder="Enter your name"
+                                            th:value="${user.name}">
+
+                                        <div id="validationServer03Feedback"
+                                            class="invalid-feedback" th:each="e
+                                            :
+                                            ${#fields.errors('name')}"
+                                            th:text="${e}">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Email Field -->
+                                    <div class="form-group my-3">
+                                        <label for="email_field">Email</label>
+                                        <input type="email" name="email"
+                                            class="form-control"
+                                            th:classappend="${#fields.hasErrors('email')
+                                            ? 'is-invalid' : ''}"
+                                            id="email_field"
+                                            aria-describedby="emailHelp"
+                                            placeholder="Enter your email"
+                                            th:value="${user.email}">
+
+                                        <div id="validationServer03Feedback"
+                                            class="invalid-feedback" th:each="e
+                                            :
+                                            ${#fields.errors('email')}"
+                                            th:text="${e}">
+                                        </div>
+                                    </div>
+
+                                    <!-- Password Field -->
+                                    <div class="form-group my-3">
+                                        <label for="password_field">Password</label>
+                                        <input type="password" name="password"
+                                            class="form-control"
+                                            th:classappend="${#fields.hasErrors('password')
+                                            ? 'is-invalid' : ''}"
+                                            id="password_field"
+                                            aria-describedby="emailHelp"
+                                            placeholder="Enter your password"
+                                            th:value="${user.password}">
+
+                                        <div id="validationServer03Feedback"
+                                            class="invalid-feedback" th:each="e
+                                            :
+                                            ${#fields.errors('password')}"
+                                            th:text="${e}">
+                                        </div>
+                                    </div>
+
+                                    <!-- About Field -->
+                                    <div class="form-group my-3">
+
+                                        <textarea rows="6" class="form-control"
+                                            name="about"
+                                            th:classappend="${#fields.hasErrors('about')
+                                            ? 'is-invalid' : ''}"
+                                            placeholder="Enter something
+                                            yourself"
+                                            th:text="${user.about}"></textarea>
+                                        <div id="validationServer03Feedback"
+                                            class="invalid-feedback" th:each="e
+                                            :
+                                            ${#fields.errors('about')}"
+                                            th:text="${e}">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Terms and Conditions agreement -->
+                                    <div class="form-group my-3 form-check">
+                                        <input type="checkbox" name="agreement"
+                                            class="form-check-input"
+                                            id="agreement"
+                                            th:classappend="${#fields.hasErrors('agreement')
+                                            ? 'is-invalid' : ''}">
+                                        <label for="agreement">Accept terms and
+                                            conditions</label>
+
+                                        <div id="validationServer03Feedback"
+                                            class="invalid-feedback" th:each="e
+                                            :
+                                            ${#fields.errors('agreement')}"
+                                            th:text="${e}">
+                                        </div>
+                                    </div>
+
+                                    <!-- Buttons Field -->
+                                    <div class="container text-center">
+                                        <button type="submit" class="btn
+                                            bg-primary
+                                            text-white">Submit</button>
+                                        <button type="reset" class="btn
+                                            bg-danger
+                                            text-white">Reset</button>
+                                    </div>
+                                </form>
                             </div>
-
-                            <img class="d-block mx-auto"
-                                th:src="@{/images/add-user.png/}" width="80px"
-                                height="80px" alt="">
-                            <h1 class="text-center">Register Here</h1>
-                            <form action="" th:action="@{/do_register/}"
-                                method="post" th:object="${user}" novalidate>
-                                <!-- Name Field -->
-                                <div class="form-group my-3">
-                                    <label for="name_field">Name</label>
-                                    <input type="text" name="name"
-                                        class="form-control"
-                                        th:classappend="${#fields.hasErrors('name')
-                                        ? 'is-invalid' : ''}"
-                                        id="name_field"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Enter your name"
-                                        th:value="${user.name}">
-
-                                    <div id="validationServer03Feedback"
-                                        class="invalid-feedback" th:each="e :
-                                        ${#fields.errors('name')}"
-                                        th:text="${e}">
-                                    </div>
-
-                                </div>
-
-                                <!-- Email Field -->
-                                <div class="form-group my-3">
-                                    <label for="email_field">Email</label>
-                                    <input type="email" name="email"
-                                        class="form-control"
-                                        th:classappend="${#fields.hasErrors('email')
-                                        ? 'is-invalid' : ''}"
-                                        id="email_field"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Enter your email"
-                                        th:value="${user.email}">
-
-                                    <div id="validationServer03Feedback"
-                                        class="invalid-feedback" th:each="e :
-                                        ${#fields.errors('email')}"
-                                        th:text="${e}">
-                                    </div>
-                                </div>
-
-                                <!-- Password Field -->
-                                <div class="form-group my-3">
-                                    <label for="password_field">Password</label>
-                                    <input type="password" name="password"
-                                        class="form-control"
-                                        th:classappend="${#fields.hasErrors('password')
-                                        ? 'is-invalid' : ''}"
-                                        id="password_field"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Enter your password"
-                                        th:value="${user.password}">
-
-                                    <div id="validationServer03Feedback"
-                                        class="invalid-feedback" th:each="e :
-                                        ${#fields.errors('password')}"
-                                        th:text="${e}">
-                                    </div>
-                                </div>
-
-                                <!-- About Field -->
-                                <div class="form-group my-3">
-
-                                    <textarea rows="6" class="form-control"
-                                        name="about"
-                                        th:classappend="${#fields.hasErrors('about')
-                                        ? 'is-invalid' : ''}"
-                                        placeholder="Enter something yourself"
-                                        th:text="${user.about}"></textarea>
-
-                                    <div id="validationServer03Feedback"
-                                        class="invalid-feedback" th:each="e :
-                                        ${#fields.errors('about')}"
-                                        th:text="${e}">
-                                    </div>
-
-                                </div>
-
-                                <!-- Terms and Conditions agreement -->
-                                <div class="form-group my-3 form-check">
-                                    <input type="checkbox" name="agreement"
-                                        class="form-check-input" id="agreement"
-                                        th:classappend="${#fields.hasErrors('agreement')
-                                        ? 'is-invalid' : ''}">
-                                    <label for="agreement">Accept terms and
-                                        conditions</label>
-
-                                    <div id="validationServer03Feedback"
-                                        class="invalid-feedback" th:each="e :
-                                        ${#fields.errors('agreement')}"
-                                        th:text="${e}">
-                                    </div>
-                                </div>
-
-                                <!-- Buttons Field -->
-                                <div class="container text-center">
-                                    <button type="submit" class="btn bg-primary
-                                        text-white">Submit</button>
-                                    <button type="reset" class="btn bg-danger
-                                        text-white">Reset</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
 
 

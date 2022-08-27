@@ -100,7 +100,9 @@
             <a href="#" th:href="@{/user/profile}" class="item"
                 th:classappend="${attach4} ? 'active' : ''"><i class="fas
                     fa-user-circle mx-3"></i>Profile</a>
-            <!-- <a href="#" class="item"><i class="fas fa-cogs mx-3"></i>Settings</a> -->
+            <a href="#" th:href="@{/user/settings}" class="item"
+                th:classappend="${attach5} ? 'active' : ''"><i class="fas
+                    fa-cogs mx-3"></i>Settings</a>
             <a href="#" th:href="@{/logout}" class="item"><i class="fas
                     fa-sign-out-alt mx-3"></i>Logout</a>
 
@@ -122,13 +124,17 @@
 
         <footer class="footer p-3 bg-primary-low mt-5">
             <ul class="nav justify-content-center pb-2">
-                <li class="nav-item"><a th:href="@{/user/index}" class="nav-link px-2
+                <li class="nav-item"><a th:href="@{/user/index}" class="nav-link
+                        px-2
                         text-light active">Home</a></li>
-                <li class="nav-item"><a th:href="@{/user/showContacts/0}" class="nav-link px-2
+                <li class="nav-item"><a th:href="@{/user/showContacts/0}"
+                        class="nav-link px-2
                         text-light">Show Contacts</a></li>
-                <li class="nav-item"><a th:href="@{/user/add-contact}" class="nav-link
+                <li class="nav-item"><a th:href="@{/user/add-contact}"
+                        class="nav-link
                         px-2 text-light">Add Contact</a></li>
-                <li class="nav-item"><a th:href="@{/user/profile}" class="nav-link
+                <li class="nav-item"><a th:href="@{/user/profile}"
+                        class="nav-link
                         px-2 text-light">Profile</a></li>
             </ul>
             <hr class="bg-primary shadow">

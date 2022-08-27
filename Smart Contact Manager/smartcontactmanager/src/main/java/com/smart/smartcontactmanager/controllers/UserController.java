@@ -13,11 +13,11 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -38,6 +38,9 @@ import com.smart.smartcontactmanager.helpers.Message;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     private UserRepository userRepository;
@@ -203,7 +206,6 @@ public class UserController {
         model.addAttribute("contact", contact);
         model.addAttribute("attach3", true);
 
-
         return "normal/update_form";
     }
 
@@ -259,4 +261,54 @@ public class UserController {
         return "normal/my_profile";
     }
 
+    // Open Setting Handler
+    @GetMapping("/settings")
+    public String openSettings(Model model) {
+
+        model.addAttribute("title", "Settings - SCM");
+
+        model.addAttribute("attach5", true);
+
+        return "normal/settings";
+    }
+
+    // Change password Handler
+    @PostMapping("/change-password")
+    public String changePassword(@RequestParam("oldPassword") String oldPassword,
+            @RequestParam("newPassword") String newPassword,
+            @RequestParam("confirmNewPassword") String confirmNewPassword, Principal principal, HttpSession session) {
+
+        // System.out.println("OLD PASSWORD = " + oldPassword);
+        // System.out.println("NEW PASSWORD = " + newPassword);
+        // System.out.println("CONFIRM NEW PASSWORD = " + confirmNewPassword);
+
+        String username = principal.getName();
+        User currentUser = userRepository.getUserByUserName(username);
+        String currentPassword = currentUser.getPassword();
+
+        if (this.bCryptPasswordEncoder.matches(oldPassword, currentPassword)) {
+
+            // Check new password and confirm new password
+            if (newPassword.equals(confirmNewPassword)) {
+
+                // change the password
+                currentUser.setPassword(this.bCryptPasswordEncoder.encode(newPassword));
+                this.userRepository.save(currentUser);
+                session.setAttribute("message", new Message("Password Changed Successfully!!!", "alert-success"));
+
+            } else {
+                session.setAttribute("message", new Message("Password does not match! Try again...", "alert-danger"));
+                return "redirect:/user/settings";
+            }
+
+        } else {
+            // error
+            session.setAttribute("message", new Message("Old password is Wrong!", "alert-danger"));
+            return "redirect:/user/settings";
+        }
+
+        return "redirect:/user/index";
+    }
+
+    
 }

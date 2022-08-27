@@ -11,7 +11,7 @@
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossorigin="anonymous">
 
-        <title>Login - Smart Contact Manager</title>
+        <title>Verify OTP - Smart Contact Manager</title>
     </head>
     <body>
         <!-- Section: Design Block -->
@@ -23,7 +23,7 @@
                     <div class="row gx-lg-5 align-items-center">
                         <div class="col-lg-6 mb-5 mb-lg-0">
                             <h1 class="my-5 display-3 fw-bold ls-tight">
-                                Please Sign in <br />
+                                You can forgot your password <br />
                                 <span class="text-primary">With Smart contact
                                     Manager</span>
                             </h1>
@@ -43,69 +43,39 @@
                         <div class="col-lg-6 mb-5 mb-lg-0">
                             <div class="card shadow">
                                 <div class="card-body py-5 px-md-5">
-                                    <form th:action="@{/dologin}" action="#"
+                                    <form th:action="@{/verify-OTP}" action="#"
                                         method="post">
 
-                                        <!-- Error Alert from security-->
-                                        <div th:if="${param.error}" class="alert
-                                            alert-danger text-center">
-                                            Invalid username & password
-                                        </div>
-
-                                        <div th:if="${param.logout}"
-                                            class="alert
-                                            alert-success text-center">
-                                            You have been logged out </div>
-
-                                        <!-- message box -->
-                                        <div class="alert w-75 mx-auto text-center"
+                                        <!-- Error Alert -->
+                                        <!-- Message Box -->
+                                        <div class="alert w-75 mx-auto
+                                            text-center"
                                             th:if="${session.message}"
                                             th:classappend="${session.message.type}">
-                                            <span th:text="${session.message.content}"></span>
-                            
-                                            <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                                            <span
+                                                th:text="${session.message.content}"></span>
+                                            <th:block
+                                                th:text="${#session.removeAttribute('message')}"></th:block>
                                         </div>
-                                        
-                                        <!-- Email input -->
+                                      
+
+                                        <!-- OTP Verification input -->
                                         <div class="form-outline mb-4">
                                             <label class="form-label"
-                                                for="form3Example3">Username/Email</label>
-                                            <input type="email" name="username"
+                                                for="form3Example3">Verify OTP</label>
+                                            <input type="text" name="otp"
                                                 id="form3Example3"
                                                 class="form-control"
-                                                placeholder="username"/>
+                                                placeholder="Enter OTP"/>
                                         </div>
 
-                                        <!-- Password input -->
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label"
-                                                for="form3Example4">Password</label>
-                                            <input type="password"
-                                                name="password"
-                                                id="form3Example4"
-                                                class="form-control"
-                                                placeholder="password"/>
-                                        </div>
-
-                                        <!-- Checkbox -->
-                                        <div class="form-check d-flex
-                                            justify-content-center mb-4">
-                                            <a href="#" class="reglink" th:href="@{/forgotPassword}">Forgot Password?</a>
-                                        </div>
 
                                         <!-- Submit button -->
                                         <button type="submit" class="btn
-                                            btn-primary btn-block mb-4
+                                            btn-success btn-block mb-4
                                             text-center d-block mx-auto">
-                                            Sign In
+                                            Verify OTP
                                         </button>
-
-                                        <!-- Register buttons -->
-                                        <div class="text-center">
-                                            <p>Don't have an Account?</p>
-                                            <a th:href="@{/signup/}"
-                                                class="reglink">Create Account</a>
-                                        </div>
                                     </form>
                                 </div>
                             </div>
